@@ -1,19 +1,34 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * Generated with the TypeScript template
- * https://github.com/react-native-community/react-native-template-typescript
- *
- * @format
- */
-
 import React from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+import {ProfileScreen, RestaurantsScreen} from './src/screens';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-import {HomeScreen} from './src/screens';
+const RootStack = createNativeStackNavigator();
 
 const App = () => {
-  return <HomeScreen />;
+  return (
+    <NavigationContainer>
+      <RootStack.Navigator initialRouteName="Restautants">
+        <RootStack.Screen
+          name="Restautants"
+          component={RestaurantsScreen}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <RootStack.Screen
+          component={ProfileScreen}
+          name="Profile"
+          options={{
+            headerShown: true,
+            headerStyle: {
+              backgroundColor: '#F52111',
+            },
+          }}
+        />
+      </RootStack.Navigator>
+    </NavigationContainer>
+  );
 };
 
 export default App;
