@@ -10,6 +10,7 @@ import RestaurantCard from '../componetns/RestaurantCard';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../../App';
+import COLORS from '../consts/colors';
 
 const Restaurants = () => {
   const navigation =
@@ -42,7 +43,7 @@ export default Restaurants;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#F52',
+    backgroundColor: COLORS.primaryBg,
     flex: 1,
   },
   header: {
@@ -55,7 +56,7 @@ const styles = StyleSheet.create({
     bottom: 100,
     left: 30,
     right: 30,
-    backgroundColor: '#F52111',
+    backgroundColor: COLORS.elementsBg,
     padding: 20,
     borderRadius: 10,
     justifyContent: 'center',

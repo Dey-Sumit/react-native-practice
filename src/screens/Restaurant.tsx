@@ -3,6 +3,7 @@ import React, {FC} from 'react';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../../App';
 import RestaurantCard from '../componetns/RestaurantCard';
+import COLORS from '../consts/colors';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Restaurant'>;
 
@@ -34,7 +35,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F52111',
+    backgroundColor: COLORS.secondaryBg,
   },
   title: {
     fontSize: 20,

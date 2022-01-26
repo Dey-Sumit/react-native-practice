@@ -6,6 +6,7 @@ import {
   RestaurantsScreen,
 } from './src/screens';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import COLORS from './src/consts/colors';
 
 export type RootStackParamList = {
   Restaurants: undefined;
@@ -35,7 +36,7 @@ const App = () => {
           options={{
             headerShown: true,
             headerStyle: {
-              backgroundColor: '#F52111',
+              backgroundColor: COLORS.secondaryBg,
             },
           }}
         />
@@ -45,7 +46,7 @@ const App = () => {
           options={{
             headerShown: true,
             headerStyle: {
-              backgroundColor: '#F52111',
+              backgroundColor: COLORS.secondaryBg,
             },
           }}
         />

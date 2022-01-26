@@ -1,6 +1,7 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import RestaurantCard from '../componetns/RestaurantCard';
+import COLORS from '../consts/colors';
 
 const Profile = () => {
   return (
@@ -23,7 +24,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F52111',
+    backgroundColor: COLORS.secondaryBg,
   },
   title: {
     fontSize: 20,
