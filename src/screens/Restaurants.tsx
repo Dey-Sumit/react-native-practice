@@ -9,15 +9,15 @@ import React from 'react';
 import RestaurantCard from '../componetns/RestaurantCard';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {RootStackParamList} from '../../App';
+import {RootBottomtabPrams} from '../../App';
 import COLORS from '../consts/colors';
 
 const Restaurants = () => {
   const navigation =
-    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+    useNavigation<NativeStackNavigationProp<RootBottomtabPrams>>();
 
   const navigateToProfile = () => {
-    navigation.navigate('Profile');
+    navigation.navigate('ProfileStack');
   };
 
   return (

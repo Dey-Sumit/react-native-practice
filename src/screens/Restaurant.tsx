@@ -1,11 +1,11 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React, {FC} from 'react';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import {RootStackParamList} from '../../App';
+import {RootBottomtabPrams} from '../../App';
 import RestaurantCard from '../componetns/RestaurantCard';
 import COLORS from '../consts/colors';
 
-type Props = NativeStackScreenProps<RootStackParamList, 'Restaurant'>;
+type Props = NativeStackScreenProps<RootBottomtabPrams, 'Restaurant'>;
 
 const Restaurant: FC<Props> = ({
   route: {

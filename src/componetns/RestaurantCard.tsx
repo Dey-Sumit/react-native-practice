@@ -1,7 +1,7 @@
 import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {RootStackParamList} from '../../App';
+import {RootBottomtabPrams} from '../../App';
 import {useNavigation} from '@react-navigation/native';
 
 interface Props {
@@ -11,12 +11,22 @@ interface Props {
 
 const RestaurantCard = ({name, id}: Props) => {
   const navigation =
-    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+    useNavigation<NativeStackNavigationProp<RootBottomtabPrams>>();
+  console.log('push', navigation.push);
 
   const navigateToRestaurantDetail = () => {
-    navigation.push('Restaurant', {
-      name: name,
-      id: id,
+    // navigation.push('Restaurant', {
+    //   name,
+    //   id,
+    // });
+
+    // navigate to other screen
+    navigation.navigate('RestaurantStack', {
+      screen: 'Restaurant',
+      params: {
+        name,
+        id,
+      },
     });
   };
 

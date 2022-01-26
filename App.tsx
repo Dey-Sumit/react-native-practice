@@ -1,5 +1,8 @@
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
+import {
+  NavigationContainer,
+  NavigatorScreenParams,
+} from '@react-navigation/native';
 import {
   ProfileScreen,
   RestaurantScreen,
@@ -7,50 +10,129 @@ import {
 } from './src/screens';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import COLORS from './src/consts/colors';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import ExploreIcon from './src/icons/ExploreIcon';
+import ProfileIcon from './src/icons/ProfileIcon';
 
-export type RootStackParamList = {
-  Restaurants: undefined;
+export type RestaurantStackParams = {
+  Restaunrants: undefined;
+  Restaurant: {
+    name: string;
+    id: number;
+  };
+};
+export type ProfileStackParams = {
   Profile: undefined;
   Restaurant: {
     name: string;
     id: number;
   };
 };
+export type RootBottomtabPrams = {
+  RestaurantStack: NavigatorScreenParams<RestaurantStackParams>;
+  ProfileStack: undefined;
+  Restaurant: {
+    name: string;
+    id: number;
+  };
+};
 
-const RootStack = createNativeStackNavigator<RootStackParamList>();
+const RootBottomTabNav = createBottomTabNavigator<RootBottomtabPrams>();
+const RestaurantStackNav = createNativeStackNavigator<RestaurantStackParams>();
+const ProfileStackNav = createNativeStackNavigator<ProfileStackParams>();
+
+const RestaurantStackComponent = () => {
+  return (
+    <RestaurantStackNav.Navigator initialRouteName="Restaunrants">
+      <RestaurantStackNav.Screen
+        name="Restaunrants"
+        component={RestaurantsScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <RestaurantStackNav.Screen
+        name="Restaurant"
+        component={RestaurantScreen}
+        options={{
+          headerShown: true,
+          headerStyle: {
+            backgroundColor: COLORS.secondaryBg,
+          },
+        }}
+      />
+    </RestaurantStackNav.Navigator>
+  );
+};
+const ProfileStackComponent = () => {
+  return (
+    <ProfileStackNav.Navigator initialRouteName="Profile">
+      <ProfileStackNav.Screen
+        name="Profile"
+        component={ProfileScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <ProfileStackNav.Screen
+        name="Restaurant"
+        component={RestaurantScreen}
+        options={{
+          headerShown: true,
+          headerStyle: {
+            backgroundColor: COLORS.secondaryBg,
+          },
+        }}
+      />
+    </ProfileStackNav.Navigator>
+  );
+};
 
 const App = () => {
   return (
     <NavigationContainer>
-      <RootStack.Navigator initialRouteName="Restaurants">
-        <RootStack.Screen
-          name="Restaurants"
-          component={RestaurantsScreen}
+      <RootBottomTabNav.Navigator
+        initialRouteName="RestaurantStack"
+        screenOptions={{
+          tabBarActiveTintColor: COLORS.secondaryBg,
+          tabBarShowLabel: false,
+          tabBarStyle: {
+            backgroundColor: COLORS.white,
+            position: 'absolute',
+            bottom: 20,
+            left: 20,
+            right: 20,
+            borderRadius: 40,
+            paddingBottom: 0,
+            height: 60,
+          },
+        }}>
+        <RootBottomTabNav.Screen
+          name="RestaurantStack"
+          component={RestaurantStackComponent}
           options={{
             headerShown: false,
+            tabBarIcon: ({color, size}) => (
+              <ExploreIcon color={color} size={size} />
+            ),
+            tabBarLabel: 'Restaurants',
           }}
         />
-        <RootStack.Screen
-          component={ProfileScreen}
-          name="Profile"
+        <RootBottomTabNav.Screen
+          component={ProfileStackComponent}
+          name="ProfileStack"
           options={{
             headerShown: true,
             headerStyle: {
               backgroundColor: COLORS.secondaryBg,
             },
+            tabBarIcon: ({color, size}) => (
+              <ProfileIcon color={color} size={size} />
+            ),
+            tabBarLabel: 'Profile',
           }}
         />
-        <RootStack.Screen
-          component={RestaurantScreen}
-          name="Restaurant"
-          options={{
-            headerShown: true,
-            headerStyle: {
-              backgroundColor: COLORS.secondaryBg,
-            },
-          }}
-        />
-      </RootStack.Navigator>
+      </RootBottomTabNav.Navigator>
     </NavigationContainer>
   );
 };
