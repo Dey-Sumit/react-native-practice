@@ -8,9 +8,12 @@ import {
 import React from 'react';
 import RestaurantCard from '../componetns/RestaurantCard';
 import {useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {RootStackParamList} from '../../App';
 
 const Restaurants = () => {
-  const navigation = useNavigation();
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
   const navigateToProfile = () => {
     navigation.navigate('Profile');

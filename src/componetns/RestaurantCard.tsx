@@ -1,5 +1,8 @@
 import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {RootStackParamList} from '../../App';
+import {useNavigation} from '@react-navigation/native';
 
 interface Props {
   name: string;
@@ -7,8 +10,20 @@ interface Props {
 }
 
 const RestaurantCard = ({name, id}: Props) => {
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+
+  const navigateToRestaurantDetail = () => {
+    navigation.push('Restaurant', {
+      name: name,
+      id: id,
+    });
+  };
+
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={navigateToRestaurantDetail}>
       <Text>
         {id} : {name}
       </Text>

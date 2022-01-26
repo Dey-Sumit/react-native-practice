@@ -1,16 +1,29 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {ProfileScreen, RestaurantsScreen} from './src/screens';
+import {
+  ProfileScreen,
+  RestaurantScreen,
+  RestaurantsScreen,
+} from './src/screens';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-const RootStack = createNativeStackNavigator();
+export type RootStackParamList = {
+  Restaurants: undefined;
+  Profile: undefined;
+  Restaurant: {
+    name: string;
+    id: number;
+  };
+};
+
+const RootStack = createNativeStackNavigator<RootStackParamList>();
 
 const App = () => {
   return (
     <NavigationContainer>
-      <RootStack.Navigator initialRouteName="Restautants">
+      <RootStack.Navigator initialRouteName="Restaurants">
         <RootStack.Screen
-          name="Restautants"
+          name="Restaurants"
           component={RestaurantsScreen}
           options={{
             headerShown: false,
@@ -19,6 +32,16 @@ const App = () => {
         <RootStack.Screen
           component={ProfileScreen}
           name="Profile"
+          options={{
+            headerShown: true,
+            headerStyle: {
+              backgroundColor: '#F52111',
+            },
+          }}
+        />
+        <RootStack.Screen
+          component={RestaurantScreen}
+          name="Restaurant"
           options={{
             headerShown: true,
             headerStyle: {
