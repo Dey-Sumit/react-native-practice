@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import {
   NavigationContainer,
   NavigatorScreenParams,
@@ -13,6 +13,7 @@ import COLORS from './src/consts/colors';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import ExploreIcon from './src/icons/ExploreIcon';
 import ProfileIcon from './src/icons/ProfileIcon';
+import React from 'react';
 
 export type RestaurantStackParams = {
   Restaunrants: undefined;
@@ -87,7 +88,16 @@ const ProfileStackComponent = () => {
     </ProfileStackNav.Navigator>
   );
 };
-
+// const tabBarStyle = {
+//   backgroundColor: COLORS.white,
+//   position: 'absolute',
+//   bottom: 20,
+//   left: 20,
+//   right: 20,
+//   borderRadius: 40,
+//   paddingBottom: 0,
+//   height: 60,
+// };
 const App = () => {
   return (
     <NavigationContainer>

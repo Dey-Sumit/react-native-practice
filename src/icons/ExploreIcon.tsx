@@ -1,18 +1,14 @@
-import * as React from "react"
-import Svg, { SvgProps, Rect, Path } from "react-native-svg"
+import * as React from 'react';
+import Svg, {Rect, Path} from 'react-native-svg';
 
 interface Props {
-  color: string
-  size: number
+  color: string;
+  size: number;
 }
 
 function ExploreIcon(props: Props) {
   return (
-    <Svg
-      viewBox="0 0 512 512"
-      width={props.size}
-      height={props.size}
-    >
+    <Svg viewBox="0 0 512 512" width={props.size} height={props.size}>
       <Rect
         x={64}
         y={176}
@@ -33,7 +29,7 @@ function ExploreIcon(props: Props) {
         d="M144 80h224m-256 48h288"
       />
     </Svg>
-  )
+  );
 }
 
-export default ExploreIcon
+export default ExploreIcon;

@@ -4,6 +4,7 @@ import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootBottomtabPrams} from '../../App';
 import RestaurantCard from '../componetns/RestaurantCard';
 import COLORS from '../consts/colors';
+import BackNavigationButton from '../componetns/BackNavigationButton';
 
 type Props = NativeStackScreenProps<RootBottomtabPrams, 'Restaurant'>;
 
@@ -14,6 +15,7 @@ const Restaurant: FC<Props> = ({
 }) => {
   return (
     <View style={styles.container}>
+      {/* <BackNavigationButton /> */}
       <Text style={styles.title}>
         {id} : {name}
       </Text>
