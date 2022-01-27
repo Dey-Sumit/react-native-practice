@@ -24,7 +24,7 @@ const Restaurants = () => {
     <SafeAreaView style={styles.container}>
       <Text style={styles.header}>All Restaurants</Text>
       <View>
-        <RestaurantCard id={1} name="Ai-x Restaurant" />
+        <RestaurantCard id={1} name="Ai Restaurant" />
         <RestaurantCard id={2} name="Com Restaurant" />
         <RestaurantCard id={3} name="Net Restaurant" />
         <RestaurantCard id={4} name="Teh Restaurant" />
