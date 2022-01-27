@@ -1,6 +1,9 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
-import {TouchableHighlight} from 'react-native-gesture-handler';
+import {
+  // TouchableHighlight,
+  TouchableOpacity,
+} from 'react-native-gesture-handler';
 import BackIcon from '../icons/BackIcon';
 import {useNavigation} from '@react-navigation/core';
 
@@ -9,14 +12,14 @@ const BackNavigationButton = () => {
 
   return (
     <View style={styles.container}>
-      <TouchableHighlight
+      <TouchableOpacity
         style={styles.backButton}
-        underlayColor="#f0ddcc"
+        // underlayColor="#f0ddcc"
         onPress={() => {
           navigation.goBack();
         }}>
         <BackIcon color="#333" size={20} />
-      </TouchableHighlight>
+      </TouchableOpacity>
     </View>
   );
 };
