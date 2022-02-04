@@ -5,6 +5,7 @@ import {
 } from '@react-navigation/native';
 import {
   ProfileScreen,
+  ReanimatedBasicScreen,
   RestaurantScreen,
   RestaurantsScreen,
 } from './src/screens';
@@ -21,6 +22,7 @@ export type RestaurantStackParams = {
     name: string;
     id: number;
   };
+  ReanimatedBasic: undefined;
 };
 export type ProfileStackParams = {
   Profile: undefined;
@@ -44,7 +46,14 @@ const ProfileStackNav = createNativeStackNavigator<ProfileStackParams>();
 
 const RestaurantStackComponent = () => {
   return (
-    <RestaurantStackNav.Navigator initialRouteName="Restaunrants">
+    <RestaurantStackNav.Navigator initialRouteName="ReanimatedBasic">
+      <RestaurantStackNav.Screen
+        name="ReanimatedBasic"
+        component={ReanimatedBasicScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
       <RestaurantStackNav.Screen
         name="Restaunrants"
         component={RestaurantsScreen}
