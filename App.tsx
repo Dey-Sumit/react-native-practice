@@ -15,6 +15,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import ExploreIcon from './src/icons/ExploreIcon';
 import ProfileIcon from './src/icons/ProfileIcon';
 import React from 'react';
+import ReanimatedGestureHandler from './src/screens/ReanimatedGestureHandler';
 
 export type RestaurantStackParams = {
   Restaunrants: undefined;
@@ -23,6 +24,7 @@ export type RestaurantStackParams = {
     id: number;
   };
   ReanimatedBasic: undefined;
+  ReanimatedGestureHandler: undefined;
 };
 export type ProfileStackParams = {
   Profile: undefined;
@@ -46,10 +48,17 @@ const ProfileStackNav = createNativeStackNavigator<ProfileStackParams>();
 
 const RestaurantStackComponent = () => {
   return (
-    <RestaurantStackNav.Navigator initialRouteName="ReanimatedBasic">
+    <RestaurantStackNav.Navigator initialRouteName="ReanimatedGestureHandler">
       <RestaurantStackNav.Screen
         name="ReanimatedBasic"
         component={ReanimatedBasicScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <RestaurantStackNav.Screen
+        name="ReanimatedGestureHandler"
+        component={ReanimatedGestureHandler}
         options={{
           headerShown: false,
         }}
