@@ -2,7 +2,15 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
 import {Gesture, GestureDetector} from 'react-native-gesture-handler';
-import {Dimensions, Pressable, StyleSheet, Text, View} from 'react-native';
+import {
+  Dimensions,
+  Pressable,
+  StyleProp,
+  StyleSheet,
+  Text,
+  View,
+  ViewStyle,
+} from 'react-native';
 import React, {useEffect} from 'react';
 import Animated, {
   useSharedValue,
@@ -17,8 +25,10 @@ const {width: SCREEN_WIDTH, height: SCREEN_HEIGHT} = Dimensions.get('window');
 interface AnimatedPosition {
   x: Animated.SharedValue<number>;
   y: Animated.SharedValue<number>;
+  scaleValue?: any;
+  // defaultStyles: StyleProp<Animated.AnimateStyle<StyleProp<ViewStyle>>>;
 }
-const useFollowAnimatedPostition = ({x, y}: AnimatedPosition) => {
+const useFollowAnimatedPostition = ({x, y, scaleValue}: AnimatedPosition) => {
   const followX = useDerivedValue(() => {
     // return x.value;
     return withSpring(x.value);
@@ -31,11 +41,12 @@ const useFollowAnimatedPostition = ({x, y}: AnimatedPosition) => {
     return {
       transform: [
         {
-          translateX: withSpring(followX.value),
+          translateX: followX.value,
         },
         {
           translateY: followY.value,
         },
+        {scale: scaleValue || 1},
       ],
     };
   }, []);
@@ -82,6 +93,7 @@ const ReanimatedGestureHandler = () => {
   } = useFollowAnimatedPostition({
     x: circle1FollowX,
     y: circle1FollowY,
+    scaleValue: 0.9,
   });
 
   const {
@@ -91,6 +103,7 @@ const ReanimatedGestureHandler = () => {
   } = useFollowAnimatedPostition({
     x: circle2FollowX,
     y: circle2FollowY,
+    scaleValue: 0.8,
   });
 
   return (
@@ -116,7 +129,6 @@ const ReanimatedGestureHandler = () => {
               },
             ],
             position: 'absolute',
-            backgroundColor: 'yellow',
           },
           Circle2rStyles,
         ]}
@@ -132,7 +144,6 @@ const ReanimatedGestureHandler = () => {
               },
             ],
             position: 'absolute',
-            backgroundColor: 'red',
           },
         ]}
       />
@@ -150,8 +161,13 @@ const styles = StyleSheet.create({
   box: {
     width: 100,
     aspectRatio: 1,
-    backgroundColor: COLORS.black,
+    backgroundColor: COLORS.elementsBg,
     borderRadius: 999,
     position: 'absolute',
+    transform: [
+      {
+        scale: 2,
+      },
+    ],
   },
 });
