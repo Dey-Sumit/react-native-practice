@@ -16,6 +16,7 @@ import ExploreIcon from './src/icons/ExploreIcon';
 import ProfileIcon from './src/icons/ProfileIcon';
 import React from 'react';
 import ReanimatedGestureHandler from './src/screens/ReanimatedGestureHandler';
+import LayoutAnimation from './src/screens/LayoutAnimation';
 
 export type RestaurantStackParams = {
   Restaunrants: undefined;
@@ -25,6 +26,7 @@ export type RestaurantStackParams = {
   };
   ReanimatedBasic: undefined;
   ReanimatedGestureHandler: undefined;
+  LayoutAnimation: undefined;
 };
 export type ProfileStackParams = {
   Profile: undefined;
@@ -48,7 +50,7 @@ const ProfileStackNav = createNativeStackNavigator<ProfileStackParams>();
 
 const RestaurantStackComponent = () => {
   return (
-    <RestaurantStackNav.Navigator initialRouteName="ReanimatedGestureHandler">
+    <RestaurantStackNav.Navigator initialRouteName="LayoutAnimation">
       <RestaurantStackNav.Screen
         name="ReanimatedBasic"
         component={ReanimatedBasicScreen}
@@ -59,6 +61,13 @@ const RestaurantStackComponent = () => {
       <RestaurantStackNav.Screen
         name="ReanimatedGestureHandler"
         component={ReanimatedGestureHandler}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <RestaurantStackNav.Screen
+        name="LayoutAnimation"
+        component={LayoutAnimation}
         options={{
           headerShown: false,
         }}
