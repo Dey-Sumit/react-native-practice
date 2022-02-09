@@ -37,7 +37,7 @@ export type ProfileStackParams = {
     id: number;
   };
 };
-export type RootBottomtabPrams = {
+export type RootBottomTabPrams = {
   RestaurantStack: NavigatorScreenParams<RestaurantStackParams>;
   ProfileStack: undefined;
   Restaurant: {
@@ -46,7 +46,7 @@ export type RootBottomtabPrams = {
   };
 };
 
-const RootBottomTabNav = createBottomTabNavigator<RootBottomtabPrams>();
+const RootBottomTabNav = createBottomTabNavigator<RootBottomTabPrams>();
 const RestaurantStackNav = createNativeStackNavigator<RestaurantStackParams>();
 const ProfileStackNav = createNativeStackNavigator<ProfileStackParams>();
 

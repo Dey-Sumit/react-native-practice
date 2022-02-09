@@ -8,21 +8,21 @@ import {
 } from 'react-native';
 import React from 'react';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {RootBottomtabPrams} from '../../App';
+import {RootBottomTabPrams} from '../../App';
 import {useNavigation} from '@react-navigation/native';
 
 interface Props {
   name: string;
   id: number;
   imageUrl?: string;
-  additionalStyles: any;
+  additionalStyles?: any;
 }
 
 const AnimatedTouchable = Animated.createAnimatedComponent(TouchableOpacity);
 
 const RestaurantCard = ({name, id, imageUrl, additionalStyles}: Props) => {
   const navigation =
-    useNavigation<NativeStackNavigationProp<RootBottomtabPrams>>();
+    useNavigation<NativeStackNavigationProp<RootBottomTabPrams>>();
   console.log('push', navigation.push);
 
   const navigateToRestaurantDetail = () => {
