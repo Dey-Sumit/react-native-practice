@@ -18,6 +18,7 @@ import React from 'react';
 import ReanimatedGestureHandler from './src/screens/ReanimatedGestureHandler';
 import LayoutAnimation from './src/screens/LayoutAnimation';
 import CardStackAnimation from './src/screens/CardStackAnimation';
+import InterpolateColor from './src/screens/InterpolateColor';
 
 export type RestaurantStackParams = {
   Restaunrants: undefined;
@@ -29,6 +30,7 @@ export type RestaurantStackParams = {
   ReanimatedGestureHandler: undefined;
   LayoutAnimation: undefined;
   CardStackAnimation: undefined;
+  InterpolateColor: undefined;
 };
 export type ProfileStackParams = {
   Profile: undefined;
@@ -52,7 +54,7 @@ const ProfileStackNav = createNativeStackNavigator<ProfileStackParams>();
 
 const RestaurantStackComponent = () => {
   return (
-    <RestaurantStackNav.Navigator initialRouteName="CardStackAnimation">
+    <RestaurantStackNav.Navigator initialRouteName="InterpolateColor">
       <RestaurantStackNav.Screen
         name="ReanimatedBasic"
         component={ReanimatedBasicScreen}
@@ -77,6 +79,13 @@ const RestaurantStackComponent = () => {
       <RestaurantStackNav.Screen
         name="CardStackAnimation"
         component={CardStackAnimation}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <RestaurantStackNav.Screen
+        name="InterpolateColor"
+        component={InterpolateColor}
         options={{
           headerShown: false,
         }}
