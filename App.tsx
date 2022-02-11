@@ -4,6 +4,7 @@ import {
   NavigatorScreenParams,
 } from '@react-navigation/native';
 import {
+  BetterHalfScreen1,
   ProfileScreen,
   ReanimatedBasicScreen,
   RestaurantScreen,
@@ -31,6 +32,7 @@ export type RestaurantStackParams = {
   LayoutAnimation: undefined;
   CardStackAnimation: undefined;
   InterpolateColor: undefined;
+  BetterHalfScreen1: undefined;
 };
 export type ProfileStackParams = {
   Profile: undefined;
@@ -54,7 +56,7 @@ const ProfileStackNav = createNativeStackNavigator<ProfileStackParams>();
 
 const RestaurantStackComponent = () => {
   return (
-    <RestaurantStackNav.Navigator initialRouteName="InterpolateColor">
+    <RestaurantStackNav.Navigator initialRouteName="BetterHalfScreen1">
       <RestaurantStackNav.Screen
         name="ReanimatedBasic"
         component={ReanimatedBasicScreen}
@@ -86,6 +88,13 @@ const RestaurantStackComponent = () => {
       <RestaurantStackNav.Screen
         name="InterpolateColor"
         component={InterpolateColor}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <RestaurantStackNav.Screen
+        name="BetterHalfScreen1"
+        component={BetterHalfScreen1}
         options={{
           headerShown: false,
         }}
