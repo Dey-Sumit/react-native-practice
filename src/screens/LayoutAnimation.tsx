@@ -30,7 +30,12 @@ const TODO_ITEMS = [
 const LayoutAnimation = () => {
   // useSharedValue gives you a value that can be controllled from ui thread
   const buttonScale = useSharedValue(1);
-  const [todos, setTodos] = useState(TODO_ITEMS);
+  const [todos, setTodos] = useState<
+    {
+      id: number;
+      title: string;
+    }[]
+  >(TODO_ITEMS);
   const initialMode = useRef<boolean>(true);
   useEffect(() => {
     initialMode.current = false;
@@ -59,7 +64,7 @@ const LayoutAnimation = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      {/* <View>
+      <View>
         {todos.map((todo, index) => (
           <Animated.View
             key={todo.id}
@@ -73,16 +78,12 @@ const LayoutAnimation = () => {
             </Pressable>
           </Animated.View>
         ))}
-      </View> */}
-      <Animated.FlatList
+      </View>
+      {/* <Animated.FlatList
         itemLayoutAnimation={Layout.springify()}
         // itemLayoutAnimation={Layout.delay(100)}
-
-        // @ts-ignore
         data={todos}
-        // @ts-ignore
         keyExtractor={todo => todo.id.toString()}
-        // @ts-ignore
         renderItem={({item: todo, index}) => {
           return (
             <Animated.View
@@ -100,7 +101,7 @@ const LayoutAnimation = () => {
             </Animated.View>
           );
         }}
-      />
+      /> */}
       <AnimatedPressable
         style={[styles.addButton, animatedButtonStyle]}
         onPress={addItem}

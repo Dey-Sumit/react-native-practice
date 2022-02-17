@@ -34,28 +34,28 @@ const InterpolateColor = () => {
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
   const progress = useSharedValue(0);
 
-  /*     const progress = useDerivedValue(() => {
-      return theme === 'dark'
-        ? withTiming(1, {
-            duration: 250,
-          })
-        : withTiming(0, {
-            duration: 250,
-          });
-    }, [theme]);
-*/
-  const handleToggle = (value: boolean) => {
-    if (value) {
-      progress.value = withTiming(1, {
-        duration: 500,
-      });
-    } else {
-      progress.value = withTiming(0, {
-        duration: 500,
-      });
-    }
-    setTheme(value === true ? 'dark' : 'light');
-  };
+  // const progress = useDerivedValue(() => {
+  //   return theme === 'dark'
+  //     ? withTiming(1, {
+  //         duration: 250,
+  //       })
+  //     : withTiming(0, {
+  //         duration: 250,
+  //       });
+  // }, [theme]);
+
+  // const handleToggle = (value: boolean) => {
+  //   if (value) {
+  //     progress.value = withTiming(1, {
+  //       duration: 500,
+  //     });
+  //   } else {
+  //     progress.value = withTiming(0, {
+  //       duration: 500,
+  //     });
+  //   }
+  //   setTheme(value === true ? 'dark' : 'light');
+  // };
 
   const rSafeViewStyles = useAnimatedStyle(() => {
     const backgroundColor = interpolateColor(
