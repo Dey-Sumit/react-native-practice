@@ -28,86 +28,115 @@ const BetterHalfScreen1 = () => {
     <SafeAreaView style={styles.container}>
       <View
         style={{
-          height: '50%',
+          height: '60%',
           width: '90%',
-          //   borderWidth: 1,
-          flexDirection: 'row',
+          flexDirection: 'column',
+          display: 'flex',
           justifyContent: 'space-between',
         }}>
-        {/* left */}
-        <Block
-          currentIndex={currentIndex}
-          enteringAnimation={SlideInDown.duration(1000)}
-          //   layout={Layout.delay(10000)}}
-          exitingAnimation={SlideOutUp.duration(1000).delay(500)}
-          overrideStyle={{flex: 0.4}}
-          imagesUrl={[
-            'https://picsum.photos/id/237/200/300',
-            'https://picsum.photos/id/238/200/300',
-            'https://picsum.photos/id/239/200/300',
-          ]}
-        />
-        {/* right */}
         <View
           style={{
-            borderRadius: 14,
-            flex: 0.58,
-            flexDirection: 'column',
+            flexDirection: 'row',
             justifyContent: 'space-between',
+            flex: 0.69,
           }}>
-          {/* <View
+          {/* left */}
+          <Block
+            currentIndex={currentIndex}
+            enteringAnimation={SlideInDown.duration(1000)}
+            //   layout={Layout.delay(10000)}}
+            exitingAnimation={SlideOutUp.duration(1000).delay(500)}
+            overrideStyle={{flex: 0.39}}
+            imagesUrl={[
+              'https://picsum.photos/id/237/200/300',
+              'https://picsum.photos/id/238/200/300',
+              'https://picsum.photos/id/239/200/300',
+            ]}
+          />
+          {/* right */}
+          <View
             style={{
-              borderWidth: 1,
               borderRadius: 14,
-              flex: 0.68,
-            }}
-          /> */}
+              flex: 0.58,
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+            }}>
+            <Block
+              currentIndex={currentIndex}
+              enteringAnimation={SlideInRight.duration(1000)}
+              //   layout={Layout.delay(10000)}}
+              exitingAnimation={SlideOutLeft.duration(1000).delay(500)}
+              overrideStyle={{flex: 0.68}}
+              imagesUrl={[
+                'https://picsum.photos/id/227/200/300',
+                'https://picsum.photos/id/228/200/300',
+                'https://picsum.photos/id/229/200/300',
+              ]}
+            />
+            <View
+              style={{
+                borderRadius: 14,
+                flex: 0.3,
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+              }}>
+              <Block
+                currentIndex={currentIndex}
+                enteringAnimation={SlideInDown.duration(1000)}
+                //   layout={Layout.delay(10000)}}
+                exitingAnimation={SlideOutUp.duration(1000).delay(600)}
+                overrideStyle={{flex: 0.48}}
+                imagesUrl={[
+                  'https://picsum.photos/id/217/200/300',
+                  'https://picsum.photos/id/218/200/300',
+                  'https://picsum.photos/id/219/200/300',
+                ]}
+              />
+              <Block
+                currentIndex={currentIndex}
+                enteringAnimation={SlideInLeft.duration(1000)}
+                //   layout={Layout.delay(10000)}}
+                exitingAnimation={SlideOutRight.duration(1000).delay(600)}
+                overrideStyle={{flex: 0.48}}
+                imagesUrl={[
+                  'https://picsum.photos/id/307/200/300',
+                  'https://picsum.photos/id/208/200/300',
+                  'https://picsum.photos/id/209/200/300',
+                ]}
+              />
+            </View>
+          </View>
+        </View>
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            flex: 0.3,
+          }}>
           <Block
             currentIndex={currentIndex}
             enteringAnimation={SlideInRight.duration(1000)}
             //   layout={Layout.delay(10000)}}
-            exitingAnimation={SlideOutLeft.duration(1000).delay(500)}
-            overrideStyle={{flex: 0.68}}
+            exitingAnimation={SlideOutLeft.duration(1000).delay(600)}
+            overrideStyle={{flex: 0.58}}
             imagesUrl={[
-              'https://picsum.photos/id/227/200/300',
-              'https://picsum.photos/id/228/200/300',
-              'https://picsum.photos/id/229/200/300',
+              'https://picsum.photos/id/317/200/300',
+              'https://picsum.photos/id/318/200/300',
+              'https://picsum.photos/id/319/200/300',
             ]}
           />
-          <View
-            style={{
-              borderRadius: 14,
-              flex: 0.3,
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-            }}>
-            {/* <View style={{borderWidth: 1, borderRadius: 14, flex: 0.49}} />
-            <View style={{borderWidth: 1, borderRadius: 14, flex: 0.49}} /> */}
-            <Block
-              currentIndex={currentIndex}
-              enteringAnimation={SlideInDown.duration(1000)}
-              //   layout={Layout.delay(10000)}}
-              exitingAnimation={SlideOutUp.duration(1000).delay(600)}
-              overrideStyle={{flex: 0.48}}
-              imagesUrl={[
-                'https://picsum.photos/id/217/200/300',
-                'https://picsum.photos/id/218/200/300',
-                'https://picsum.photos/id/219/200/300',
-              ]}
-            />
-            <Block
-              currentIndex={currentIndex}
-              enteringAnimation={SlideInLeft.duration(1000)}
-              //   layout={Layout.delay(10000)}}
-              exitingAnimation={SlideOutRight.duration(1000).delay(600)}
-              overrideStyle={{flex: 0.48}}
-              imagesUrl={[
-                'https://picsum.photos/id/307/200/300',
-                'https://picsum.photos/id/208/200/300',
-                'https://picsum.photos/id/209/200/300',
-              ]}
-            />
-          </View>
+          <Block
+            currentIndex={currentIndex}
+            enteringAnimation={SlideInDown.duration(1000)}
+            //   layout={Layout.delay(10000)}}
+            exitingAnimation={SlideOutUp.duration(1000).delay(600)}
+            overrideStyle={{flex: 0.4}}
+            imagesUrl={[
+              'https://picsum.photos/id/304/200/300',
+              'https://picsum.photos/id/308/200/300',
+              'https://picsum.photos/id/302/200/300',
+            ]}
+          />
         </View>
       </View>
     </SafeAreaView>
@@ -143,9 +172,8 @@ const Block = ({
       style={[
         {
           borderWidth: 2,
-          borderColor: 'pink',
+          borderColor: 'black',
           borderRadius: 14,
-
           overflow: 'hidden',
         },
         overrideStyle,

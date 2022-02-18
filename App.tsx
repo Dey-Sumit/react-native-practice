@@ -4,6 +4,7 @@ import {
   NavigatorScreenParams,
 } from '@react-navigation/native';
 import {
+  AccordionScreen,
   BetterHalfScreen1,
   ProfileScreen,
   ReanimatedBasicScreen,
@@ -20,6 +21,7 @@ import ReanimatedGestureHandler from './src/screens/ReanimatedGestureHandler';
 import LayoutAnimation from './src/screens/LayoutAnimation';
 import CardStackAnimation from './src/screens/CardStackAnimation';
 import InterpolateColor from './src/screens/InterpolateColor';
+import BetterHalfCollapsible from './src/screens/BetterHalfCollapsable';
 
 export type RestaurantStackParams = {
   Restaunrants: undefined;
@@ -33,6 +35,8 @@ export type RestaurantStackParams = {
   CardStackAnimation: undefined;
   InterpolateColor: undefined;
   BetterHalfScreen1: undefined;
+  Accordion: undefined;
+  BetterHalfCollapsible: undefined;
 };
 export type ProfileStackParams = {
   Profile: undefined;
@@ -56,10 +60,24 @@ const ProfileStackNav = createNativeStackNavigator<ProfileStackParams>();
 
 const RestaurantStackComponent = () => {
   return (
-    <RestaurantStackNav.Navigator initialRouteName="BetterHalfScreen1">
+    <RestaurantStackNav.Navigator initialRouteName="BetterHalfCollapsible">
       <RestaurantStackNav.Screen
         name="ReanimatedBasic"
         component={ReanimatedBasicScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <RestaurantStackNav.Screen
+        name="Accordion"
+        component={AccordionScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <RestaurantStackNav.Screen
+        name="BetterHalfCollapsible"
+        component={BetterHalfCollapsible}
         options={{
           headerShown: false,
         }}
